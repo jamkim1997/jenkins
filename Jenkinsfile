@@ -74,7 +74,7 @@ pipeline {
             }
 
             steps {
-                dir ('./server') {
+                dir ('.nodeapp/server') {
                     sh '''
                     npm install&&
                     npm run lint
