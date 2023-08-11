@@ -21,7 +21,7 @@ pipeline {
                 echo "Cloning Repository"
 
                 git url: "https://github.com/jamkim1997/jenkins",
-                    branch: 'master',
+                    branch: "main",
                     credentialsId: 'github_jenkins'
             }
 
@@ -44,9 +44,7 @@ pipeline {
             steps {
                 echo "Deploying Frontend"
                 dir ('./website') {
-                    sh '''
-                    aws s3 sync ./ s3://jenkinstesingjere
-                    '''
+                    sh "aws s3 sync ./ s3://jenkinstesingjere"
                 }
             }
 
