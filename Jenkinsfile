@@ -64,7 +64,22 @@ pipeline {
                             subject: "Failed pipeline",
                             body: "Something is wrong with deploy frontend"
                     }
-                
+            }
+        }
+        stage('Lint Backend') {
+            agent {
+                docker {
+                    image 'node:latest'
+                }
+            }
+
+            steps {
+                dir ('./server') {
+                    sh '''
+                    npm install&&
+                    npm run lint
+                    '''
+                }
             }
         }
     }
