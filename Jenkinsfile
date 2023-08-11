@@ -43,7 +43,7 @@ pipeline {
         stage('Deploy Frontend') {
             steps {
                 echo "Deploying Frontend"
-                dir ('./website') {
+                dir ('./nodeapp/website') {
                     sh "aws s3 sync ./ s3://jenkinstesingjere"
                 }
             }
