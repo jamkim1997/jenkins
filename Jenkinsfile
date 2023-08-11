@@ -64,7 +64,7 @@ pipeline {
                             subject: "Failed pipeline",
                             body: "Something is wrong with deploy frontend"
                     }
-                }
+                
             }
         }
     }
