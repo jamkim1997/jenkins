@@ -39,5 +39,26 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy Frontend') {
+            steps {
+                echo "Deploying Frontend"
+                dir ('./website') {
+                    sh "aws s3 sync ./ s3://jenkinstesingjere"
+                }
+            }
+
+            post {
+                success {
+                    echo "Successfully Cloned Repository"
+
+                }
+
+                failure {
+                    echo "I failed :("
+
+                }
+            }
+        }
     }
 }
