@@ -51,7 +51,9 @@ pipeline {
             post {
                 success {
                     echo "Successfully Cloned Repository"
-
+                    mail to: 'ruddhks2001@naver.com',
+                        subject: "Deploy Frontend Success",
+                        body: "Successfully deployed frontend!"
                 }
 
                 failure {
